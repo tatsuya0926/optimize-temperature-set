@@ -134,6 +134,7 @@ function calc_acceptance_and_rtt(
     exchange_probs_sum = zeros(M - 1)
     exchange_attempts = zeros(M - 1)
 
+    replica_states = zeros(Int, M)
     round_trip_start_steps = zeros(Int, M)
     round_trip_times = [[] for _ in 1:M]
 
