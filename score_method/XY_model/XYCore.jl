@@ -2,8 +2,8 @@ module XYCore
 
 using Random, LinearAlgebra, Statistics, StatsBase, Printf, Distributions
 
-seed = 42
-Random.seed!(seed)
+# seed = 42
+# Random.seed!(seed)
 
 function initial_state(N)
     state = 2π .* rand(N, N)
@@ -223,12 +223,13 @@ function score_method(
 end
 
 function calc_acceptance_and_rtt(
-    N,
+    N, 
+    config,
     β_replicas;
     mcSteps=10^4
 )
     M = length(β_replicas)
-    configs = [copy(initial_state(N)) for _ in 1:M]
+    configs = [copy(config) for _ in 1:M]
     replica_indices = collect(1:M)
     temperature_indices = collect(1:M)
 
